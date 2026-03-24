@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sakigake marketing Co., Ltd. | Japanese</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      background: #07111f;
+      color: #fff;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(236,72,153,.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(34,211,238,.18), transparent 28%),
+        linear-gradient(135deg, #07111f 0%, #0b1730 45%, #111827 100%);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 48px;
+      align-items: center;
+      min-height: 88vh;
+      padding: 72px 0;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(244,114,182,.28);
+      background: rgba(255,255,255,.05);
+      color: #f9a8d4;
+      font-size: 13px;
+      letter-spacing: .08em;
+    }
+    h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.08;
+      margin: 22px 0 18px;
+      letter-spacing: -.03em;
+    }
+    .gradient {
+      background: linear-gradient(90deg, #f9a8d4 0%, #fff 50%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .lead {
+      font-size: 20px;
+      color: #cbd5e1;
+      max-width: 760px;
+    }
+    .cta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 18px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #ec4899, #22d3ee);
+      color: #07111f;
+    }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: #fff;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+    .card,
+    .service-card,
+    .market-card,
+    .validation-card,
+    .process-card,
+    .case-card,
+    .footer-box,
+    .about-box {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      border-radius: 28px;
+      padding: 24px;
+    }
+    .card .small {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .card .big {
+      font-size: 28px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+    .side-panel {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      border-radius: 34px;
+      padding: 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.28);
+    }
+    .side-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(2,6,23,.45);
+      padding: 16px;
+      border-radius: 20px;
+      margin-top: 12px;
+    }
+    .num {
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(236,72,153,.95), rgba(34,211,238,.95));
+      color: #07111f;
+      font-weight: 800;
+    }
+    section {
+      padding: 92px 0;
+    }
+    .section-muted {
+      background: rgba(255,255,255,.03);
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .kicker {
+      color: #67e8f9;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .kicker.pink {
+      color: #f9a8d4;
+    }
+    h2 {
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.15;
+      margin: 16px 0 0;
+      letter-spacing: -.03em;
+    }
+    h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .sublead {
+      margin-top: 18px;
+      font-size: 19px;
+      color: #cbd5e1;
+      max-width: 860px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 36px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 22px;
+    }
+    .chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .chip {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(2,6,23,.45);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #e2e8f0;
+      font-size: 13px;
+    }
+    .service-card ul {
+      padding: 0;
+      list-style: none;
+      margin: 16px 0 0;
+    }
+    .service-card li {
+      margin: 10px 0;
+      color: #cbd5e1;
+    }
+    .service-card li::before {
+      content: "• ";
+      color: #67e8f9;
+    }
+    .market-card p,
+    .validation-card p,
+    .case-card p,
+    .process-card p,
+    .about-box p,
+    .footer-box p {
+      color: #cbd5e1;
+    }
+    .process-step {
+      color: #f9a8d4;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+    .link-btn {
+      display: inline-block;
+      margin-top: 14px;
+      border: 1px solid rgba(34,211,238,.22);
+      background: rgba(34,211,238,.10);
+      color: #a5f3fc;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      section {
+        padding: 72px 0;
+      }
+      .hero-grid {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">SAKIGAKE MARKETING CO., LTD. · Transnational Execution Strategy</div>
+        <h1>ブランド、流通、コンテンツ、現地実行を統合し、<span class="gradient">売上につながる越境成長エンジンを構築します。</span></h1>
+        <p class="lead">
+          Sakigake Marketing は、単なる露出支援会社ではありません。
+          市場参入戦略、流通導入、販売導線設計、メディア露出、市場検証、運営代行までを一体で設計し、
+          ブランドの海外展開を実行レベルで支援します。
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#services">サービスを見る</a>
+          <a class="btn btn-secondary" href="#contact">お問い合わせ</a>
+          <a class="btn btn-secondary" href="index.html">中文</a>
+        </div>
+        <div class="stats">
+          <div class="card">
+            <div class="small">台湾市場での流通展開</div>
+            <div class="big">オンライン＋オフライン統合</div>
+            <div class="small">EC、実店舗、小売提案導入までを一括で整備します。</div>
+          </div>
+          <div class="card">
+            <div class="small">市場検証モジュール</div>
+            <div class="big">コンテンツ × メディア × ライブ配信</div>
+            <div class="small">露出、反応、売上、顧客フィードバックを実用的な証拠へと転換します。</div>
+          </div>
+          <div class="card">
+            <div class="small">展開中の市場</div>
+            <div class="big">6カ国</div>
+            <div class="small">日本、台湾、香港、マレーシア、アメリカ、カナダを中心に展開しています。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div style="color:#94a3b8;font-size:14px;">Growth Engine</div>
+        <div style="font-size:32px;font-weight:800;margin-top:8px;">越境成長エンジン</div>
+        <div class="side-item"><div class="num">01</div><div>市場戦略とポジショニング設計</div></div>
+        <div class="side-item"><div class="num">02</div><div>流通提案と導入支援</div></div>
+        <div class="side-item"><div class="num">03</div><div>通販の虎 / FLH / TikTok による市場検証</div></div>
+        <div class="side-item"><div class="num">04</div><div>小売運営とデータ最適化</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap grid-2">
+      <div>
+        <div class="kicker pink">About Us</div>
+        <h2>Sakigake Marketing は、単なる代理ではなく、市場定着を実行するパートナーです。</h2>
+      </div>
+      <div class="about-box">
+        <p class="sublead" style="margin-top:0;">
+          私たちは、複雑になりやすい海外市場展開を、実行可能な形に落とし込みます。
+          台湾ブランドの日本進出、海外ブランドの台湾導入、香港・マレーシア・北米市場への展開まで、
+          戦略立案から現地実行、販売検証、運営改善までを一貫して支援します。
+        </p>
+
+        <div class="chip-wrap">
+          <span class="chip">ブランド戦略と国際市場参入</span>
+          <span class="chip">EC導入とオフライン流通展開</span>
+          <span class="chip">越境リソース統合</span>
+          <span class="chip">長期運営と売上成長設計</span>
+        </div>
+
+        <div class="chip-wrap" style="margin-top:22px;">
+          <span class="chip">日本</span>
+          <span class="chip">台湾</span>
+          <span class="chip">香港</span>
+          <span class="chip">マレーシア</span>
+          <span class="chip">アメリカ</span>
+          <span class="chip">カナダ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-muted" id="services">
+    <div class="wrap">
+      <div class="kicker">Services</div>
+      <h2>市場参入、流通、マーケティング、市場検証、運営代行を一体化したサービスを提供します。</h2>
+
+      <div class="grid-4" style="margin-top:34px;">
+        <div class="service-card">
+          <h3>市場参入戦略</h3>
+          <ul>
+            <li>市場ポジショニング設計</li>
+            <li>参入ルートの策定</li>
+            <li>SKU / 商品カテゴリ設計</li>
+            <li>成長ロードマップ構築</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>流通開発と導入</h3>
+          <ul>
+            <li>台湾ECおよびオフライン流通の統合</li>
+            <li>日本市場での流通開拓</li>
+            <li>香港市場での小売導入</li>
+            <li>オンライン・オフライン全体設計</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>マーケティングと転換設計</h3>
+          <ul>
+            <li>ライブ配信企画</li>
+            <li>KOL / 共同購入施策</li>
+            <li>TikTok 運営</li>
+            <li>露出から売上までの導線設計</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>市場検証と拡大</h3>
+          <ul>
+            <li>販売テストと検証</li>
+            <li>顧客反応の整理</li>
+            <li>提案用データの構築</li>
+            <li>テストから本格展開への移行</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker pink">Markets</div>
+      <h2>各市場の流通特性を踏まえ、最適な展開方法を設計します。</h2>
+
+      <div class="grid-3" style="margin-top:34px;">
+        <div class="market-card">
+          <h3>台湾フルチャネル展開</h3>
+          <p>ECでの市場テストからオフライン小売提案まで、一連の導線を設計します。</p>
+          <div class="chip-wrap">
+            <span class="chip">MOMO</span>
+            <span class="chip">PChome</span>
+            <span class="chip">博客來</span>
+            <span class="chip">蝦皮</span>
+            <span class="chip">全聯</span>
+            <span class="chip">Costco</span>
+            <span class="chip">7-Eleven</span>
+            <span class="chip">FamilyMart</span>
+            <span class="chip">Hi-Life</span>
+            <span class="chip">OK Mart</span>
+          </div>
+        </div>
+
+        <div class="market-card">
+          <h3>日本市場でのブランド拡張</h3>
+          <p>ブランドコンテンツ、流通提案、販売チャネル構築を通じて、日本市場での認知と販売機会を高めます。</p>
+          <div class="chip-wrap">
+            <span class="chip">AEON</span>
+            <span class="chip">Costco</span>
+            <span class="chip">松本清</span>
+            <span class="chip">7-Eleven</span>
+            <span class="chip">FamilyMart</span>
+            <span class="chip">Amazon</span>
+            <span class="chip">楽天</span>
+          </div>
+        </div>
+
+        <div class="market-card">
+          <h3>香港および海外市場展開</h3>
+          <p>百貨店、スーパー、EC、越境運営を統合し、展開効率を高めます。</p>
+          <div class="chip-wrap">
+            <span class="chip">AEON</span>
+            <span class="chip">UNY / APITA</span>
+            <span class="chip">YATA</span>
+            <span class="chip">Citistores</span>
+            <span class="chip">Wellcome</span>
+            <span class="chip">Citysuper</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-muted">
+    <div class="wrap">
+      <div class="kicker">Market Validation</div>
+      <h2>市場検証を先に行い、その結果をもとに流通と売上を拡大します。</h2>
+      <p class="sublead">
+        私たちは、先に市場の反応を確認し、その後に流通導入を拡大することを重視しています。
+        メディア露出、ライブ配信、ショート動画、販売型コンテンツを通じて、ブランドの市場適合性を検証します。
+      </p>
+
+      <div class="grid-4" style="margin-top:34px;">
+        <div class="validation-card">
+          <h3>通販の虎</h3>
+          <p>販売型コンテンツ番組を通じて、商品の説得力を高め、市場反応と売上転換の証拠を蓄積します。</p>
+          <a class="link-btn" href="https://www.youtube.com/@tsuuhannotora" target="_blank" rel="noreferrer">YouTubeチャンネルを見る</a>
+        </div>
+
+        <div class="validation-card">
+          <h3>FLH フジテレビ系ネット番組</h3>
+          <p>番組露出を通じてブランド信頼を高め、営業提案や市場コミュニケーションでの説得力を強化します。</p>
+          <a class="link-btn" href="https://flh.jp" target="_blank" rel="noreferrer">公式サイトを見る</a>
+        </div>
+
+        <div class="validation-card">
+          <h3>TikTok ライブ / ショート動画</h3>
+          <p>ショート動画とライブ配信で消費者反応を素早く検証し、流入、反応、売上を拡大します。</p>
+        </div>
+
+        <div class="validation-card">
+          <h3>市場検証データ化</h3>
+          <p>コメント、売上、リピート、利用シーンを整理し、対外提案に使える検証資料へと変換します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker pink">Execution Showcase</div>
+      <h2>現地での実行事例。</h2>
+      <p class="sublead">
+        実際の現場写真を通じて、展開の具体的なイメージをご確認いただけます。
+      </p>
+
+      <div class="grid-2" style="margin-top:34px;">
+        <div class="case-card" style="padding:0; overflow:hidden;">
+          <img src="landing-1.JPG" alt="日本のバス停ライトボックス広告" style="width:100%; height:280px; object-fit:cover; display:block;">
+          <div style="padding:22px;">
+            <h3>日本のバス停ライトボックス広告</h3>
+            <p>実際の広告ビジュアルを通じて、現地でのブランド表現を確認できます。</p>
+          </div>
+        </div>
+
+        <div class="case-card" style="padding:0; overflow:hidden;">
+          <img src="landing-2.JPG" alt="台湾・花蓮「将軍府」イベント" style="width:100%; height:280px; object-fit:cover; display:block;">
+          <div style="padding:22px;">
+            <h3>台湾・花蓮「将軍府」イベント</h3>
+            <p>日本企業が継続的に参加している現地イベント事例です。</p>
+          </div>
+        </div>
+
+        <div class="case-card" style="padding:0; overflow:hidden;">
+          <img src="landing-3.JPG" alt="市場推進素材" style="width:100%; height:280px; object-fit:cover; display:block;">
+          <div style="padding:22px;">
+            <h3>市場推進素材</h3>
+            <p>市場検証と対外発信用素材を、ウェブサイト上で統合して見せます。</p>
+          </div>
+        </div>
+
+        <div class="case-card" style="padding:0; overflow:hidden;">
+          <img src="landing-4.JPG" alt="日本現地でのライブ配信イベント" style="width:100%; height:280px; object-fit:cover; display:block;">
+          <div style="padding:22px;">
+            <h3>日本現地でのライブ配信イベント</h3>
+            <p>台湾および各国ブランドが、日本市場でライブ配信によるテスト販売を行えます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-muted">
+    <div class="wrap">
+      <div class="kicker">Process</div>
+      <h2>明確な進行フローで、越境展開をより確実にします。</h2>
+
+      <div class="grid-3" style="margin-top:34px;">
+        <div class="process-card">
+          <div class="process-step">STEP 01</div>
+          <h3>ブランド診断</h3>
+          <p>商品力、ブランド力、流通適性、越境目標を整理し、最適な参入テンポを見極めます。</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">STEP 02</div>
+          <h3>戦略設計</h3>
+          <p>市場参入ルート、SKU構成、コンテンツ設計、流通優先順位を策定します。</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">STEP 03</div>
+          <h3>提案と導入</h3>
+          <p>流通提案、窓口対応、上架準備、ローンチ前の実務を進めます。</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">STEP 04</div>
+          <h3>市場検証</h3>
+          <p>通販の虎、FLH、TikTok、ライブ配信、コンテンツ運用を通じて市場反応を収集します。</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">STEP 05</div>
+          <h3>データ最適化</h3>
+          <p>市場反応に基づき、コンテンツ、流通、補充ペースを調整し、ブランド効率を高めます。</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">STEP 06</div>
+          <h3>長期拡大</h3>
+          <p>テスト段階から安定成長へ移行し、再現可能で持続可能な成長モデルを構築します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker pink">Cases & Value</div>
+      <h2>私たちが提供するのは、単なるサービスではなく、拡張可能な成果です。</h2>
+
+      <div class="grid-3" style="margin-top:34px;">
+        <div class="case-card">
+          <h3>台湾市場での流通統合</h3>
+          <p>ECとオフライン小売を同時に進め、検証から拡大までの導線を構築します。</p>
+        </div>
+
+        <div class="case-card">
+          <h3>日本市場でのブランド拡張</h3>
+          <p>ブランドコンテンツ、通販の虎、FLH、流通接点を組み合わせ、日本市場での認知と購買機会を高めます。</p>
+        </div>
+
+        <div class="case-card">
+          <h3>香港および海外市場展開</h3>
+          <p>百貨店、スーパー、EC、越境運営代行を統合し、香港および海外市場への展開効率を高めます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-muted" id="contact">
+    <div class="wrap grid-2">
+      <div>
+        <div class="kicker">Contact</div>
+        <h2>あなたのブランドを、次の市場へ届ける準備はできていますか？</h2>
+        <p class="sublead">
+          台湾、日本、香港、マレーシア、北米など、次の市場への進出を検討しているブランドに対し、
+          立ち上げから拡大まで一貫して支援します。
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <div style="color:#94a3b8;font-size:14px;">会社名</div>
+        <div style="font-size:24px;font-weight:800;margin-top:8px;">珍膳美股份有限公司｜Sakigake marketing Co., Ltd.</div>
+
+        <div style="color:#94a3b8;font-size:14px;margin-top:18px;">対応エリア</div>
+        <div style="margin-top:8px;color:#e2e8f0;">日本 × 台湾 × 香港 × マレーシア × アメリカ × カナダ｜流通 × マーケティング × 越境展開</div>
+
+        <div style="color:#94a3b8;font-size:14px;margin-top:18px;">お問い合わせ</div>
+        <div style="margin-top:8px;color:#e2e8f0;">E-mail：sakigakemarketing@gmail.com</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
